@@ -1,4 +1,4 @@
-# rpa_studies
+# RPA_studies
 Resumos de estudos Sobre Robotic Automatic Process
 
 ## A biblioteca que utilizei para esse estudo foi a Pupteer e estou utilizando node.js
