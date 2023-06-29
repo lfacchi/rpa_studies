@@ -65,6 +65,26 @@ Se a navegação ocorrer antes de waitForNavigation() ser chamado, a função n�
 ### Navegação não detectada:
 A função waitForNavigation() só detecta navegações que alteram a URL. Se a navegação ocorrer de outra maneira (por exemplo, através do uso da API de Histórico para alterar a URL), waitForNavigation() pode não detectar a navegação. Para esses casos, você pode precisar usar outras funções de espera, como waitForFunction(), para verificar a condição de navegação.
 
+### waitForSelector(selector, options):
+Esta função espera até que o seletor apareça na página. Isso pode ser útil se a navegação resultar em um novo elemento sendo adicionado à página. Por exemplo:
+
+	await page.waitForSelector('#my-element');
+
+### waitForXPath(xpath, options):
+Similar ao waitForSelector, mas usa XPath em vez de CSS selectors. Por exemplo:
+
+	await page.waitForXPath('//p[@class="my-class"]');
+
+### waitForFunction(pageFunction, options, ...args):
+Esta função espera até que a pageFunction passada como argumento seja verdadeira. Esta função pode ser usada para verificar uma ampla variedade de condições. Por exemplo, para esperar até que um elemento específico contenha um determinado texto, você poderia fazer:
+
+	await page.waitForFunction(
+	  'document.querySelector("body").innerText.includes("my text")'
+	);
+
+Essas funções não detectam a navegação por si só, mas podem ser usadas para verificar as alterações que ocorrem como resultado da navegação. Portanto, a estratégia de espera correta a ser usada dependerá de cada caso
+
+
 	
 	
 
